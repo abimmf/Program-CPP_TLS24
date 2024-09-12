@@ -1,0 +1,58 @@
+#include <iostream>  
+#include <cmath>     // Untuk fungsi akar kuadrat
+
+void hitungLuasSegitigaSikuSiku() {
+    float a, b;
+    std::cout << "\nMenghitung luas segitiga siku-siku\n";
+    std::cout << "Masukkan panjang alas (a): ";
+    std::cin >> a;
+    std::cout << "Masukkan tinggi (b): ";
+    std::cin >> b;
+
+    // Menghitung luas segitiga siku-siku
+    float luas = 0.5 * a * b;
+    std::cout << "Luas segitiga siku-siku adalah: " << luas << std::endl;
+
+    // Menghitung sisi miring menggunakan teorema phytagoras (library cmath)
+    float c = sqrt(a * a + b * b);
+    std::cout << "Panjang sisi miring (c) adalah: " << c << std::endl;
+}
+
+void hitungLuasSegiempat() {
+    float panjang, lebar;
+    std::cout << "\nMenghitung luas segiempat\n";
+    std::cout << "Masukkan panjang: ";
+    std::cin >> panjang;
+    std::cout << "Masukkan lebar: ";
+    std::cin >> lebar;
+
+    float luas = panjang * lebar;  // Rumus luas persegi panjang
+    std::cout << "Luas segiempat adalah: " << luas << std::endl;
+}
+
+int main() {
+    int pilihan;
+
+    // Loop untuk pengguna bisa menggunakan opsi lain
+    while (true) {
+        std::cout << "\nPilih bentuk yang ingin dihitung luasnya:\n";
+        std::cout << "1. Segitiga siku-siku\n";
+        std::cout << "2. Segiempat\n";
+        std::cout << "3. Keluar\n";
+        std::cout << "Masukkan pilihan (1/2/3): ";
+        std::cin >> pilihan;
+
+        if (pilihan == 1) {
+            hitungLuasSegitigaSikuSiku();
+        } else if (pilihan == 2) {
+            hitungLuasSegiempat();
+        } else if (pilihan == 3) {
+            std::cout << "Keluar dari program. Terima kasih!\n";
+            break;  // Keluar dari loop
+        } else {
+            std::cout << "Pilihan tidak valid! Silakan coba lagi.\n";
+        }
+    }
+
+    return 0;
+}
